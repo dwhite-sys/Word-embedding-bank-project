@@ -1,20 +1,19 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
-  "hostRequirements": {
-    "cpus": 4
-  },
-  "waitFor": "onCreateCommand",
-  "updateContentCommand": "python3 -m pip install -r requirements.txt",
-  "postCreateCommand": "",
-  "customizations": {
-    "codespaces": {
-      "openFiles": []
+    "name": "NLP Environment",
+    "image": "mcr.microsoft.com/devcontainers/python:3.10",
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "ms-python.python",
+          "ms-python.vscode-pylance",
+          "njpwerner.autodocstring"
+        ],
+        "settings": {
+          "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+          "python.linting.enabled": true,
+          "editor.formatOnSave": true
+        }
+      }
     },
-    "vscode": {
-      "extensions": [
-        "ms-toolsai.jupyter",
-        "ms-python.python"
-      ]
-    }
+    "postCreateCommand": "pip install spacy && python -m spacy download en_core_web_lg"
   }
-}
