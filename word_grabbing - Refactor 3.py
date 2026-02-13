@@ -24,7 +24,7 @@ from Important.simplify import *
 #-------------------------------------------------
 
 # The titles of the text files to be processed
-titles = ['peterpan', 'callofthewild', 'junglebook', 'frankenstein']
+titles = ['peterpan']                                                      #, 'callofthewild', 'junglebook', 'frankenstein']
 
 # The size of each chunk of words to be processed at a time.
     # Larger batch size = faster processing, but more memory usage.
@@ -354,7 +354,7 @@ def check_simularity(words:list):
 
     not_done = set([word[0] for word in sim_cursor.fetchall()]) if unique_word_count != (0 or None) else set(lemmas)
     not_done = sorted(list(not_done))
-    
+
     new_similarities = 0
     # Compare all the lemmas to each other
     for i, word in enumerate(not_done):
